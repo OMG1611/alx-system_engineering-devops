@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -1p --group-directories-first | awk '{printf "%s, ", $0} END {print ""}'
+ls -1pva --group-directories-first | grep -v '^..$' | tr '\n' ',' | sed 's/,$/\n/'
