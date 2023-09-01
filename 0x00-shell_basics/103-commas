@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -maxdepth 1 -printf '%f\n' | sort -k1,1n -k1,1 | sed 's/ /\\ /g' | xargs -I {} sh -c 'if [ -d "{}" ]; then echo "{}/,"; else echo "{}, "; fi' | tr -d '\n'
+ls -1p --group-directories-first | awk '{printf "%s, ", $0} END {print ""}'
